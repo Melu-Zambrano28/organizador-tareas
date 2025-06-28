@@ -259,3 +259,52 @@ body {
 .add-task-section button:hover {
     background: #0056b3;
 }
+
+/* Estilos para formulario de edición inline */
+.edit-mode {
+    background: #fff3cd;
+    border: 2px solid #ffeaa7;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.edit-form input {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.edit-form input[type="text"] {
+    font-weight: bold;
+}
+
+.edit-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+.task-btn.save {
+    background: #28a745;
+    color: white;
+}
+
+.task-btn.cancel {
+    background: #6c757d;
+    color: white;
+}
+
+.task-btn.save:hover {
+    background: #218838;
+}
+
+.task-btn.cancel:hover {
+    background: #5a6268;
+}

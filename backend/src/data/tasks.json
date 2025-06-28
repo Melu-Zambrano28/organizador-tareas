@@ -12,16 +12,6 @@
       "id": "2",
       "task": "Enviar el proyecto integrador",
       "dueDate": "2025-06-30"
-    },
-    {
-      "task": "Trabajar ",
-      "date": "2025-06-27",
-      "id": "3"
-    },
-    {
-      "task": "Trabajar 2",
-      "date": "2025-06-19",
-      "id": "4"
     }
   ]
 }

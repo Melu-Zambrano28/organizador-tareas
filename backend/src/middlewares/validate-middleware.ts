@@ -5,7 +5,7 @@ export const validateMiddleware = (
   res: Response,
   next: NextFunction,
 ): void => {
-  const { id, task, date } = req.body;
+  const { id, task, dueDate } = req.body;
   if (!id || typeof id !== 'string') {
     res
       .status(400)
@@ -18,10 +18,10 @@ export const validateMiddleware = (
       .json({ error: "El campo 'task' es requerido y debe ser string" });
     return;
   }
-  if (!date || typeof date !== 'string') {
+  if (!dueDate || typeof dueDate !== 'string') {
     res
       .status(400)
-      .json({ error: "El campo 'date' es requerido y debe ser string" });
+      .json({ error: "El campo 'dueDate' es requerido y debe ser string" });
     return;
   }
   next();
