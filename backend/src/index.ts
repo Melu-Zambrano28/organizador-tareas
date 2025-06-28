@@ -1,10 +1,14 @@
 // index.ts
-import express from "express";
+import express, {Application, Request, Response, NextFunction} from "express";
 import cors from "cors";
 //import bodyParser from "body-parser";
 import path from "path";
 import dotenv from "dotenv";
 import tasksRoutes from "./src/routes/tasks-routes";
+import { authMiddleware } from "./middlewares/auth-middleware";
+import { errorMiddleware } from "./middlewares/error-middleware";
+import { validateMiddleware } from "./middlewares/validate-middleware";
+
 
 dotenv.config();
 
@@ -20,12 +24,24 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "../public")));
 
 // Rutas de API
-app.use("/api/tasks", tasksRoutes);
+app.use("/api/task", tasksRoutes);
+
+
+//Middleware para manejar solicitudes a rutas que no existen en la app
+//si el usuario hace una solicitud a una ruta no definida, se devuelve un error 404 con un mensaje.
+app.use((req: Request, res:Response) => {
+    res.status(404).json({error: "Endpoint  no encontrado"});
+})
+
 
 // Ruta principal que sirve el HTML
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/index.html"));
 });
+
+app.use(authMiddleware)
+app.use(errorMiddleware);
+app.use(validateMiddleware);
 
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en: http://localhost:${PORT}`);
