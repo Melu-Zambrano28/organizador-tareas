@@ -19,21 +19,28 @@ app.use(cors());
 //app.use(bodyParser.json());
 app.use(express.json());
 
-// Servir archivos estáticos desde carpeta public
-app.use(express.static(path.join(__dirname, '../public')));
+// Servir archivos estáticos desde carpeta client
+app.use(express.static(path.join(__dirname, '../../client')));
 
 // Rutas de API
-app.use(process.env.API_TASKS_URL || '/api/task', tasksRoutes);
+app.use(process.env.API_TASKS_URL || '/api/tasks', tasksRoutes);
 
-//Middleware para manejar solicitudes a rutas que no existen en la app
-//si el usuario hace una solicitud a una ruta no definida, se devuelve un error 404 con un mensaje.
-app.use((req: Request, res: Response) => {
-  res.status(404).json({ error: 'Endpoint  no encontrado' });
+// Rutas específicas para las páginas web
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../client/login.html'));
 });
 
-// Ruta principal que sirve el HTML
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/index.html'));
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../client/login.html'));
+});
+
+app.get('/dashboard', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../client/dashboard.html'));
+});
+
+//Middleware para manejar solicitudes a rutas que no existen en la app
+app.use((req: Request, res: Response) => {
+  res.status(404).json({ error: 'Endpoint no encontrado' });
 });
 
 app.use(authMiddleware);
