@@ -1,7 +1,8 @@
 function logout() {
   if (confirm('¿Estás seguro de que quieres cerrar sesión?')) {
+    localStorage.removeItem('user');
     alert('Sesión cerrada exitosamente');
-    window.location.href = 'login.html';
+    window.location.href = '/login';
   }
 }
 
@@ -34,8 +35,25 @@ async function testAPI() {
   }
 }
 
+function updateWelcomeMessage() {
+  const user = JSON.parse(localStorage.getItem('user') || '{}');
+  const welcomeSection = document.querySelector('.welcome-section h2');
+
+  if (user.name && welcomeSection) {
+    welcomeSection.textContent = `¡Bienvenido/a de vuelta, ${user.name}!`;
+  }
+}
+
 // Mensaje de bienvenida cuando carga la página
 window.addEventListener('load', function () {
   console.log('Dashboard cargado exitosamente');
   console.log('Redirect desde login funcionando correctamente');
+
+  updateWelcomeMessage();
+
+  const user = localStorage.getItem('user');
+  if (!user) {
+    alert('Debes iniciar sesión primero');
+    window.location.href = '/login';
+  }
 });

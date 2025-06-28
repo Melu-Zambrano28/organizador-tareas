@@ -5,6 +5,7 @@ import cors from 'cors';
 import path from 'path';
 import dotenv from 'dotenv';
 import tasksRoutes from './routes/tasks-routes';
+import authRoutes from './routes/auth-routes';
 import { authMiddleware } from './middlewares/auth-middleware';
 import { errorMiddleware } from './middlewares/error-middleware';
 import { validateMiddleware } from './middlewares/validate-middleware';
@@ -23,6 +24,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '../../client')));
 
 // Rutas de API
+app.use('/api/auth', authRoutes);
 app.use(process.env.API_TASKS_URL || '/api/tasks', tasksRoutes);
 
 // Rutas específicas para las páginas web
