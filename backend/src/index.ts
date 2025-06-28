@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')));
 
 // Rutas de API
-app.use('/api/task', tasksRoutes);
+app.use(process.env.API_TASKS_URL || '/api/task', tasksRoutes);
 
 //Middleware para manejar solicitudes a rutas que no existen en la app
 //si el usuario hace una solicitud a una ruta no definida, se devuelve un error 404 con un mensaje.

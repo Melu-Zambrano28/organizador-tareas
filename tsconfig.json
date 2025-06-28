@@ -6,6 +6,6 @@
     "strict": true, // Buenas prácticas para evitar errores.
     "esModuleInterop": true //Permite usar import con paquetes comunes.
   },
-  "include": ["src/**/*"], //bien apuntando solo a src.
+  "include": ["src/**/*", "backend/src/index.ts"], //bien apuntando solo a src.
   "exclude": ["node_modules"] //bien apuntando solo a src.
 }
