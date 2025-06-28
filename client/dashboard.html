@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Organizador de Tareas</title>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>Organizador de Tareas - Dashboard</h1>
+      <button class="logout-btn" onclick="logout()">Cerrar Sesión</button>
+    </header>
+
+    <div class="container">
+      <div class="welcome-section">
+        <h2>¡Bienvenido/a de vuelta!</h2>
+        <p>
+          Has iniciado sesión exitosamente. Aquí puedes gestionar todas tus
+          tareas y proyectos.
+        </p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <h3><span class="icon">📝</span> Mis Tareas</h3>
+          <p>
+            Gestiona y organiza todas tus tareas pendientes. Crea nuevas tareas,
+            marca como completadas y establece prioridades.
+          </p>
+          <button class="action-button" onclick="goToTasks()">
+            Ver Tareas
+          </button>
+        </div>
+
+        <div class="card">
+          <h3><span class="icon">📊</span> Estadísticas</h3>
+          <p>
+            Revisa tu progreso y productividad. Ve cuántas tareas has completado
+            y cuál es tu rendimiento.
+          </p>
+          <button class="action-button" onclick="goToStats()">
+            Ver Estadísticas
+          </button>
+        </div>
+
+        <div class="card">
+          <h3><span class="icon">⚙️</span> Configuración</h3>
+          <p>
+            Personaliza tu experiencia. Cambia tu perfil, ajusta notificaciones
+            y configuraciones de la cuenta.
+          </p>
+          <button class="action-button" onclick="goToSettings()">
+            Configurar
+          </button>
+        </div>
+
+        <div class="card">
+          <h3><span class="icon">🔗</span> API de Tareas</h3>
+          <p>
+            Tu backend está funcionando correctamente. Puedes conectar con la
+            API para gestionar tareas desde aquí.
+          </p>
+          <button class="action-button" onclick="testAPI()">Probar API</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>
