@@ -22,47 +22,30 @@
         </p>
       </div>
 
-      <div class="cards-grid">
-        <div class="card">
-          <h3><span class="icon">📝</span> Mis Tareas</h3>
-          <p>
-            Gestiona y organiza todas tus tareas pendientes. Crea nuevas tareas,
-            marca como completadas y establece prioridades.
-          </p>
-          <button class="action-button" onclick="goToTasks()">
-            Ver Tareas
-          </button>
-        </div>
+      <!-- Formulario simple para agregar tareas -->
+      <div class="add-task-section">
+        <h3>Agregar Nueva Tarea</h3>
+        <form id="addTaskForm">
+          <input
+            type="text"
+            id="taskDescription"
+            name="task"
+            placeholder="Descripción de la tarea"
+            required
+          />
+          <input type="date" id="taskDueDate" name="dueDate" required />
+          <button type="submit">Agregar Tarea</button>
+        </form>
+      </div>
 
-        <div class="card">
-          <h3><span class="icon">📊</span> Estadísticas</h3>
-          <p>
-            Revisa tu progreso y productividad. Ve cuántas tareas has completado
-            y cuál es tu rendimiento.
-          </p>
-          <button class="action-button" onclick="goToStats()">
-            Ver Estadísticas
-          </button>
+      <!-- Sección de Tareas -->
+      <div class="tasks-section">
+        <div class="tasks-header">
+          <h2>Mis Tareas</h2>
+          <button onclick="loadTasks()">Actualizar</button>
         </div>
-
-        <div class="card">
-          <h3><span class="icon">⚙️</span> Configuración</h3>
-          <p>
-            Personaliza tu experiencia. Cambia tu perfil, ajusta notificaciones
-            y configuraciones de la cuenta.
-          </p>
-          <button class="action-button" onclick="goToSettings()">
-            Configurar
-          </button>
-        </div>
-
-        <div class="card">
-          <h3><span class="icon">🔗</span> API de Tareas</h3>
-          <p>
-            Tu backend está funcionando correctamente. Puedes conectar con la
-            API para gestionar tareas desde aquí.
-          </p>
-          <button class="action-button" onclick="testAPI()">Probar API</button>
+        <div id="tasksContainer" class="tasks-container">
+          <div class="loading">Cargando tareas...</div>
         </div>
       </div>
     </div>

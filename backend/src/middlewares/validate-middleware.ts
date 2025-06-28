@@ -1,6 +1,3 @@
-// validateTask – Verifica que la tarea tenga los campos correctos
-// ✅ Esto se usa justo antes de createTask para asegurarse de que el cuerpo del POST esté bien armado.
-
 import express, { Request, Response, NextFunction } from 'express';
 
 export const validateMiddleware = (
@@ -21,10 +18,10 @@ export const validateMiddleware = (
       .json({ error: "El campo 'task' es requerido y debe ser string" });
     return;
   }
-  if (!Date || typeof Date !== 'string') {
+  if (!date || typeof date !== 'string') {
     res
       .status(400)
-      .json({ error: "El campo 'Date' es requerido y debe ser string" });
+      .json({ error: "El campo 'date' es requerido y debe ser string" });
     return;
   }
   next();

@@ -51,7 +51,3 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
-
-function redirectToDashboard() {
-  window.location.href = 'dashboard.html';
-}
